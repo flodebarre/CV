@@ -1,0 +1,278 @@
+\usepackage[right]{lineno}
+\usepackage[francais, english]{babel}
+
+\renewcommand{\baselinestretch}{1} 
+
+\usepackage[latin1]{inputenc}
+\usepackage{eurosym}
+\usepackage{amsmath}%, amssymb, amsfonts}
+
+% LINESPACING
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[hscale=0.75, vscale=0.9, includehead, includefoot]{geometry}
+
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{fit, positioning, calc, shapes, snakes, arrows}
+\usepackage{rotating}
+
+\usepackage{soul}
+
+\usepackage[labelfont={sf,bf},format=plain, hang]{caption}
+\usepackage{color}
+\definecolor{lgray}{gray}{0.5}
+\definecolor{mgray}{gray}{0.3}
+\definecolor{mc}{rgb}{0,0,1}
+\definecolor{colsec}{gray}{0}
+\definecolor{colsubsec}{gray}{0.3}
+\definecolor{colheadfoot}{gray}{0.5}
+
+\definecolor{ddblue}{rgb}{0,0.1,0.2}
+\definecolor{marbg}{gray}{1}%{rgb}{0.85,0.85,0.9}
+\definecolor{secbg}{rgb}{0.925,0.925,0.975}
+\definecolor{darkblue}{rgb}{0,0.2,0.4}
+\definecolor{upcoming}{gray}{0.5}
+
+\definecolor{colorsection}{RGB}{0, 120, 120}
+\definecolor{colorsubsection}{RGB}{0, 80, 80}
+\definecolor{colorsubsubsection}{RGB}{0, 50, 50}
+\definecolor{colorsubpar}{RGB}{10, 30, 30}
+\definecolor{colorlink}{RGB}{0, 40, 40}
+\definecolor{colortabline}{RGB}{0, 100, 100}
+
+\definecolor{oddyear}{RGB}{60, 80, 80}
+
+\definecolor{colorboxframe}{RGB}{0, 10, 10}
+\definecolor{colorboxbg}{RGB}{225, 235, 235}
+
+\newcommand{\highlight}[1]{\hl{#1}}%\colorbox{yellow}{#1}}
+
+% Bibliography commented out
+%\usepackage{natbib}
+%\renewcommand{\bibsection}{\section[BIBLIOGRAPHY]{Bibliography}}
+
+\usepackage{paralist}
+\usepackage{multicol}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=black, breaklinks=true, filecolor=black, urlcolor=colorlink, nesting=true, pdftex, bookmarksopenlevel=2, bookmarksopen=true, pdfauthor=Debarre_Florence, pdfpagelayout=SinglePage]{hyperref}
+\urlstyle{sf}
+
+%% Remove the backrefs
+%\RequirePackage[hyperpageref]{backref} 
+%   \renewcommand*{\backref}[1]{}  
+%   \renewcommand*{\backrefalt}[4]{
+%      \ifcase #1 
+%         No cited.
+%      \or
+%         {\scriptsize (cited~p.~#2)}
+%      \else
+%         {\scriptsize (cited~pp.~#2)}
+%      \fi}
+      
+      
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\pagestyle{plain}
+
+
+\newlength{\annee}
+\settowidth{\annee}{\scriptsize{Marche 2013}}
+% \texte est la largeur de la deuxieme colonne. Elle est d\'efinie comme
+% \'etant la largeur de la page moins celle de la premiere colonne.
+% 2\tabcolsep est la largeur de l'espacement entre les colonnes.
+
+\newlength{\decallage}
+\setlength{\decallage}{\annee}
+\addtolength{\decallage}{2\tabcolsep}
+	
+\newlength{\texte}
+\setlength{\texte}{\textwidth} 
+	\addtolength{\texte}{-3\tabcolsep}
+	\addtolength{\texte}{-\annee}
+
+\newcommand{\journal}[1]{\textit{#1}}
+\newcommand{\stage}[1]{\textit{#1}}
+
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\npub}[1]{[A#1]}
+\newcommand{\nsub}[1]{[S#1]}
+\newcommand{\nbub}[1]{[B#1]}
+\newcommand{\npubref}[1]{\textbf{\npub{#1}}}
+\newcommand{\nsubref}[1]{\textbf{\nsub{#1}}}
+\newcommand{\nbubref}[1]{\textbf{\nbub{#1}}}
+\newcommand{\namref}[1]{\textbf{#1}}
+\newcommand{\wip}{\noindent \textcolor{ddblue}{$\rhd\;$}}
+
+
+\newlength{\ltab}
+\setlength{\ltab}{\textwidth}
+	\addtolength{\ltab}{\decallage}
+
+
+\usepackage{longtable}
+\usepackage{changepage}
+\setlength{\LTleft}{-4cm}
+\usepackage[none]{hyphenat}
+\usepackage{marginnote}
+\reversemarginpar
+\usepackage{adjustbox}
+\newcommand{\cvline}[2]{\marginnote{\raggedleft{\scriptsize{#1}}} \noindent \begin{minipage}[t]{\textwidth}#2\end{minipage}\vspace{0.2em}}
+
+\newcommand{\fund}[1]{\newline\phantom{a}\small \color{mgray}Funding: #1}
+
+\newenvironment{mytabular}{%
+\begin{adjustwidth*}{-2cm}{-2cm}
+%
+  \vspace{-1\baselineskip} \noindent  % Spacing before the table
+  \arrayrulecolor{colortabline!50}     % Color of the line
+%\setlength{\LTleft}{-20cm plus -1fill}
+%\setlength{\LTright}{\LTleft}
+\begin{longtable}[l]{>{\scriptsize \raggedleft} p{\annee} <{\hspace{0\tabcolsep}}
+    % @{\hspace{-0\tabcolsep}}        % Year column
+   >{}p{\texte}<{\vspace{0.175em}}%@{\extracolsep{\fill}}
+    }
+    }
+    {
+\end{longtable}
+  \vspace{0.15\baselineskip}          % Spacing after table
+\end{adjustwidth*}
+}
+
+\newcommand{\conftype}[1]{\textsf{\small[{#1}]}}
+
+%% TO AVOID PAGE BREAKS
+\widowpenalties 1 100000
+\raggedbottom
+
+\newcommand{\projecttitle}[1]{\textsf{#1}}
+\newcommand{\projectbullet}{\textcolor{colorsubsection}{$\bullet$}}
+\usepackage{lastpage}
+
+
+\makeatletter
+\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+    \color{colheadfoot}\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+\makeatother
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand{\austy}[1]{\textbf{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------
+% Section Styles
+% \defaultfontfeatures{Mapping=tex-text}
+%
+% FONTS
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+\renewcommand{\sfdefault}{phv}
+
+\newcommand{\boxsection}[1]{
+  \noindent 
+  \colorbox{colorsubsection!100}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textcolor{white}{ {#1}}
+    }
+  }
+}
+
+\newcommand{\boxsubsection}[1]{
+  \noindent
+  \colorbox{colorsubsection!10}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textcolor{colorsubsection}{{\centering #1}}
+    }
+  }
+}
+
+\makeatletter
+
+\renewcommand{\section}{\@startsection
+{section}%                   % the name
+{1}%                         % the level
+{0mm}%                       % the indent
+{-\baselineskip}%            % the before skip
+{0.25\baselineskip}%          % the after skip
+{\Large  \sffamily \color{colorsection} %\boxsection
+}} % the style
+
+\renewcommand{\subsection}{\@startsection
+{subsection}%                   % the name
+{2}%                         % the level
+{0mm}%                       % the indent
+{-0.5\baselineskip}%            % the before skip
+{0.05\baselineskip}%          % the after skip
+{\Large \sffamily
+ \color{colorsubsection} \boxsubsection}} % the style
+
+\renewcommand{\subsubsection}{\@startsection
+{subsubsection}%                   % the name
+{3}%                         % the level
+{0mm}%                       % the indent
+{-0.5\baselineskip}%            % the before skip
+{0.2\baselineskip}%          % the after skip
+{\sffamily
+ \large \color{colorsubsubsection}}} % the style
+
+\setcounter{secnumdepth}{6}
+\renewcommand\theparagraph{\textsf{\itshape \Obj~\arabic{subsubsection}.\Alph{paragraph}}}
+
+\renewcommand{\paragraph}{\@startsection
+{paragraph}
+{4}
+{0mm}%{\z@}%
+{0.1 \baselineskip}%{-3.25ex\@plus -1ex \@minus -.2ex}%
+{0.0001pt \@plus .2ex}%
+{\normalfont\normalsize%
+}}
+
+\renewcommand\subparagraph{\@startsection
+{subparagraph}
+{5}
+{0mm}%
+{0. \baselineskip}%
+{0.25 \baselineskip}%
+{\normalsize \sffamily \color{colorsubpar}}}
+
+\newcommand{\subparstyle}[1]{\vspace{0.25\baselineskip} \noindent \normalsize \textcolor{colorsubpar}{\textsf{#1} \vspace{-0.75\baselineskip}\\}}
+
+\newcommand{\rescontrib}[1]{\noindent \normalsize \textcolor{colorsubpar}{\textsf{#1} }}
+
+%\renewcommand{\paragraph}{\@startsection
+%{paragraph}%                   % the name
+%{4}%                         % the level
+%{10mm}%                       % the indent
+%{-0.5\baselineskip}%            % the before skip
+%{0.1\baselineskip}%          % the after skip
+%{\sffamily \itshape}} % the style
+%
+
+\makeatother
+
+\renewcommand{\thesection}{B\arabic{section}}
+\renewcommand{\thesubsection}{B\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\itshape \large \Obj \arabic{subsubsection}}
+
+\usepackage{pdfpages}
+
+\newcommand{\cvnote}[1]{{\small (#1)}}
+
+\newcommand{\Obj}{Obj~}
+
+\newcommand{\eg}{e.g.}
+\newcommand{\ie}{i.e.}
+\newcommand{\vs}{vs.}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\bfseries \sffamily \color{black}}
+\renewcommand{\cftsubsecfont}{\sffamily \color{black}}
