@@ -1,4 +1,6 @@
 Oldies/
 *.log
-
+*.aux
+*.out
+*.gz
 
