@@ -137,7 +137,7 @@
 %\setlength{\LTright}{\LTleft}
 \begin{longtable}[l]{>{\scriptsize \raggedleft} p{\annee} <{\hspace{0\tabcolsep}}
     % @{\hspace{-0\tabcolsep}}        % Year column
-   >{}p{\texte}<{\vspace{0.175em}}%@{\extracolsep{\fill}}
+   >{}p{\texte}<{\vspace{0.15em}}%@{\extracolsep{\fill}}
     }
     }
     {
@@ -175,76 +175,86 @@
 % FONTS
 \usepackage[T1]{fontenc}
 \usepackage[charter]{mathdesign}
-\renewcommand{\sfdefault}{phv}
+\usepackage{sourcesanspro}
+%\renewcommand{\sfdefault}{phv}
 
-\newcommand{\boxsection}[1]{
-  \noindent 
-  \colorbox{colorsubsection!100}{%
-    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
-      \textcolor{white}{ {#1}}
-    }
-  }
-}
+\usepackage{titlesec}
 
-\newcommand{\boxsubsection}[1]{
-  \noindent
-  \colorbox{colorsubsection!10}{%
-    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
-      \textcolor{colorsubsection}{{\centering #1}}
-    }
-  }
-}
-
-\makeatletter
-
-\renewcommand{\section}{\@startsection
-{section}%                   % the name
-{1}%                         % the level
-{0mm}%                       % the indent
-{-\baselineskip}%            % the before skip
-{0.25\baselineskip}%          % the after skip
-{\Large  \sffamily \color{colorsection} %\boxsection
-}} % the style
-
-\renewcommand{\subsection}{\@startsection
-{subsection}%                   % the name
-{2}%                         % the level
-{0mm}%                       % the indent
-{-0.5\baselineskip}%            % the before skip
-{0.05\baselineskip}%          % the after skip
-{\Large \sffamily
- \color{colorsubsection} \boxsubsection}} % the style
-
-\renewcommand{\subsubsection}{\@startsection
-{subsubsection}%                   % the name
-{3}%                         % the level
-{0mm}%                       % the indent
-{-0.5\baselineskip}%            % the before skip
-{0.2\baselineskip}%          % the after skip
-{\sffamily
- \large \color{colorsubsubsection}}} % the style
-
-\setcounter{secnumdepth}{6}
-\renewcommand\theparagraph{\textsf{\itshape \Obj~\arabic{subsubsection}.\Alph{paragraph}}}
-
-\renewcommand{\paragraph}{\@startsection
-{paragraph}
-{4}
-{0mm}%{\z@}%
-{0.1 \baselineskip}%{-3.25ex\@plus -1ex \@minus -.2ex}%
-{0.0001pt \@plus .2ex}%
-{\normalfont\normalsize%
-}}
-
-\renewcommand\subparagraph{\@startsection
-{subparagraph}
-{5}
-{0mm}%
-{0. \baselineskip}%
-{0.25 \baselineskip}%
-{\normalsize \sffamily \color{colorsubpar}}}
-
-\newcommand{\subparstyle}[1]{\vspace{0.25\baselineskip} \noindent \normalsize \textcolor{colorsubpar}{\textsf{#1} \vspace{-0.75\baselineskip}\\}}
+\titleformat{\section}{\Large\bfseries\sffamily \color{colorsection} }{\thesection}{}{}
+\titleformat{\subsection}{\Large\bfseries\sffamily \color{colorsubsection} }{\thesubsection}{}{}
+\titleformat{\subsubsection}{\large \sffamily \color{colorsubsubsection} }{\thesubsubsection}{}{}
+  
+  
+%  
+%\newcommand{\boxsection}[1]{
+%  \noindent 
+%  \colorbox{colorsubsection!100}{%
+%    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+%      \textcolor{white}{ {#1}}
+%    }
+%  }
+%}
+%
+%\newcommand{\boxsubsection}[1]{
+%  \noindent
+%  \colorbox{colorsubsection!10}{%
+%    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+%      \textcolor{colorsubsection}{{\centering #1}}
+%    }
+%  }
+%}
+%
+%\makeatletter
+%
+%\renewcommand{\section}{\@startsection
+%{section}%                   % the name
+%{1}%                         % the level
+%{0mm}%                       % the indent
+%{-\baselineskip}%            % the before skip
+%{0.25\baselineskip}%          % the after skip
+%{\Large  \sffamily \color{colorsection} %\boxsection
+%}} % the style
+%
+%\renewcommand{\subsection}{\@startsection
+%{subsection}%                   % the name
+%{2}%                         % the level
+%{0mm}%                       % the indent
+%{-0.5\baselineskip}%            % the before skip
+%{0.05\baselineskip}%          % the after skip
+%{\Large \sffamily 
+% \color{colorsubsection} %\boxsubsection
+% }} % the style
+%
+%\renewcommand{\subsubsection}{\@startsection
+%{subsubsection}%                   % the name
+%{3}%                         % the level
+%{0mm}%                       % the indent
+%{-0.5\baselineskip}%            % the before skip
+%{0.2\baselineskip}%          % the after skip
+%{\sffamily
+% \large \color{colorsubsubsection}}} % the style
+%
+%\setcounter{secnumdepth}{6}
+%\renewcommand\theparagraph{\textsf{\itshape \Obj~\arabic{subsubsection}.\Alph{paragraph}}}
+%
+%\renewcommand{\paragraph}{\@startsection
+%{paragraph}
+%{4}
+%{0mm}%{\z@}%
+%{0.1 \baselineskip}%{-3.25ex\@plus -1ex \@minus -.2ex}%
+%{0.0001pt \@plus .2ex}%
+%{\normalfont\normalsize%
+%}}
+%
+%\renewcommand\subparagraph{\@startsection
+%{subparagraph}
+%{5}
+%{0mm}%
+%{0. \baselineskip}%
+%{0.25 \baselineskip}%
+%{\normalsize \sffamily \color{colorsubpar}}}
+%
+%\newcommand{\subparstyle}[1]{\vspace{0.25\baselineskip} \noindent \normalsize \textcolor{colorsubpar}{\textsf{#1} \vspace{-0.75\baselineskip}\\}}
 
 \newcommand{\rescontrib}[1]{\noindent \normalsize \textcolor{colorsubpar}{\textsf{#1} }}
 
